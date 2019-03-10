@@ -1,0 +1,26 @@
+<?php
+
+namespace izv\view;
+
+require 'classes/vendor/autoload.php';
+
+use izv\model\Model;
+use izv\tools\Util;
+
+class View {
+
+    private $model;
+
+    function __construct(Model $model) {
+        $this->model = $model;
+    }
+    
+    function getModel() {
+        return $this->model;
+    }
+
+    function render($accion) {
+        $datos = $this->getModel()->getViewData();
+        return Util::varDump($datos);
+    }
+}

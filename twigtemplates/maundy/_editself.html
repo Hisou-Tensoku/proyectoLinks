@@ -1,0 +1,69 @@
+{% extends '_base.html' %}
+{% block about %}
+<div class="container" style="margin-bottom: 15px;">
+    <div class="row">
+        {% if user_data.administrador %}
+        <form action="admin/doeditself" method="post" role="form" class="contactForm">
+            {% else %}
+        <form action="user/doeditself" method="post" role="form" class="contactForm">
+        {% endif %}
+            <input type="hidden" name="id" value="{{ user_data.id }}"/>
+            <div class="form-group">
+                <input type="text" required class="form-control" name="alias" id="alias" placeholder="Alias" value="{{user_data.alias}}" data-msg="Por favor, un correo electrónico válido." />
+                <div class="validation"></div>
+            </div>
+            <div class="form-group">
+                <input type="text" required class="form-control" name="nombre" id="nombre" placeholder="Nombre" value="{{user_data.nombre}}" data-msg="Por favor, un correo electrónico válido." />
+                <div class="validation"></div>
+            </div>
+            <div class="form-group">
+                <input type="email" required class="form-control" name="correo" id="correo" placeholder="Correo" value="{{user_data.correo}}" data-rule="email" data-msg="Por favor, un correo electrónico válido." />
+                <div class="validation"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="clave" id="clave" placeholder="Clave de acceso" value="" data-rule="minlen:4" data-msg="Por favor, al menos 4 caracteres." />
+                <div class="validation"></div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="clave2" id="clave2" placeholder="Repita la clave de acceso" value="" data-rule="#clave" data-msg="Las dos claves deben coincidir." />
+                <div class="validation"></div>
+            </div>
+            {% if user_data.administrador %}
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="administrador" id="administrador"  value="1"
+                {% if user_data.administrador %}
+                    checked
+                {% endif %}/>
+                <label class="form-check-label" for="activo">Administrador</label>
+            </div>
+            {% endif %}
+            <div class="text-center">
+                <button type="submit" class="contact-submit">Editar</button>
+            </div>
+        </form>
+        <div class="text-center">
+            <a href="user" class="btn contact-submit" role="button">Volver</a>
+        </div>
+        <h3>Darse de baja</h3>
+	<div class="form-group">
+	    {% if user_data.administrador %}
+		<form action="admin/doeditself" method="post">
+		    {% else %}
+        <form action="user/doeditself" method="post">
+        {% endif %}
+		    <input type="hidden" name="id" id="id" class="form-control" value="{{ user_data.id }}"/>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="bajaTmp" id="bajaTmp" value="1" checked>
+                <label class="form-check-label" for="bajaTmp">Baja temporal</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="bajaTmp" id="bajaTmp2" value="0">
+                <label class="form-check-label" for="bajaTmp2">Baja definitiva</label>
+            </div>
+            <p></p>
+            <button type="submit" class="btn btn-primary">Darse de Baja</button>
+        </form>
+	</div>
+    </div>
+</div>
+{% endblock %}

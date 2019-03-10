@@ -1,0 +1,4 @@
+[07-Feb-2019 16:29:46 UTC] PHP Fatal error:  Cannot declare class Playlist, because the name is already in use in /home/ubuntu/workspace/proyectoMVC/classes/cli_doctrine/src/Playlist.php on line 8
+[23-Feb-2019 21:46:05 UTC] PHP Fatal error:  Cannot declare class izv\data\Categoria, because the name is already in use in /home/ubuntu/workspace/proyectoAjax/classes/doctrine/src/izv/data/Categoria.php on line 8
+[23-Feb-2019 21:46:56 UTC] PHP Fatal error:  Cannot declare class izv\data\Categoria, because the name is already in use in /home/ubuntu/workspace/proyectoAjax/classes/doctrine/src/izv/data/Categoria.php on line 8
+[24-Feb-2019 10:47:32 UTC] PHP Fatal error:  Trait 'izv\common\Common' not found in /home/ubuntu/workspace/proyectoAjax/classes/doctrine/src/Categoria.php on line 11

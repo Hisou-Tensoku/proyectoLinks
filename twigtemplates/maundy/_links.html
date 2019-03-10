@@ -1,0 +1,104 @@
+{% extends '_base.html' %}
+{% block subtitle %}
+<!-- modal -->
+<div class="modal fade" id="modalregister" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="fRegister">
+                    <input class="form-control" type="text" id="cancion" placeholder="Nombre de la canción"/>
+                    <br>
+                    <input class="form-control" type="text" id="autor" required placeholder="Autor de la cancion"/>
+                    <br>
+                    <input class="form-control" type="text" id="link" required placeholder="Enlace de la cancion"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" form="fRegister" class="btn btn-primary" id="btRegister">Registrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fin modal -->
+<div class="col-lg-2">
+    <ul id="ulcategorias">
+        
+    </ul>
+</div>
+<div class="col-lg-10">
+    <div id="verBotonesLoginRegistro">
+        <div class="row">
+            <div class="text-center col-lg-6">
+                <h2>Insertar Link</h2>
+                <form id="fRegisterLink">
+                    <input class="form-control" type="text" id="hrefenlace" placeholder="Enlace a guardar"/>
+                    <br>
+                    <select  class="form-control" id="categoriaenlace" form="fRegisterLink">
+                      
+                    </select>
+                    <br>
+                    <textarea class="form-control" id="descripcionenlace" required placeholder="Descripcion corta"></textarea>
+                </form>
+                <br>
+                <button type="button" form="fRegister" class="btn btn-primary" id="btRegisterLink">Insertar</button>
+            </div>
+            
+            <br><br>
+            <div class="text-center col-lg-6">
+                <h2>Insertar Categoria</h2>
+                <form id="fRegisterCategoria">
+                    <input class="form-control" type="text" id="nombrecategoria" placeholder="Nombre de la categoria"/>
+                    <br>
+                </form>
+                <button type="button" form="fRegister" class="btn btn-primary" id="btRegisterCategoria">Insertar</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="text-center col-lg-12">
+        <form id="fBusqueda">
+            <input class="form-control" type="text" id="busqueda" placeholder="Inserte una palabra"/>
+            <br>
+        </form>
+        <button type="button" form="fBusqueda" class="btn btn-primary" id="btBusqueda">Buscar</button>
+    </div>
+    <div id="verListaDeValores">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <a href="" id="ordenaporid">ID</a>
+                    </th>
+                    <th scope="col">
+                        <a href="" id="ordenaporcategoria">Categoria</a>
+                    </th>
+                    <th scope="col">
+                        <a href="" id="ordenaporenlace">Enlace</a>
+                    </th>
+                    <th scope="col">
+                        <a href="" id="ordenapordescripcion">Descripción</a>
+                    </th>
+                    <th scope="col">
+                        Deletear lunk
+                    </th>
+                </tr>
+            </thead>
+            
+            <tbody id="cuerpoTablaCiudades">
+            </tbody>
+            
+        </table>
+        
+        <div id="pintarPaginas">
+        </div>
+        
+    </div>
+</div>
+{%endblock%}
